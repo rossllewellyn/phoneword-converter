@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "nodemon index.ts",
+    "prod": "npx tsc && cp -r ./public ./dist && node ./dist/index.js",
     "test": "jest"
   },
   "jest": {

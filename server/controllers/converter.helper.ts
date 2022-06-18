@@ -13,5 +13,16 @@ const conversions: { [key: number]: string[] } = {
 
 export const convertPhonewordToWord = (phoneword: string): string[] => {
   if (!/^[2-9]+$/.test(phoneword)) throw new Error(`Invalid Input`);
-  return [];
+  let text: string[] = fs
+    .readFileSync(__dirname + "/../public/words.txt", "utf-8")
+    .toString()
+    .split("\n")
+    .filter((word) => word.length === phoneword.length)
+    .map((word) => word.toLowerCase());
+  for (let i = 0; i < phoneword.length; i++) {
+    text = text.filter((word) =>
+      conversions[parseInt(phoneword[i])].includes(word[i])
+    );
+  }
+  return text;
 };

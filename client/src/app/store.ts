@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import phonewordReducer from "../features/phone/phonewordSlice";
+import phoneReducer from "../features/phone/phoneSlice";
 
 export const store = configureStore({
   reducer: {
-    phoneword: phonewordReducer,
+    phone: phoneReducer,
   },
 });
 

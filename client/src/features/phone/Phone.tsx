@@ -1,17 +1,22 @@
-import React, { useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { inputDigit, clearInput, selectPhoneword } from "./phonewordSlice";
+import {
+  inputDigit,
+  clearInput,
+  updateConvertedWords,
+  selectPhoneword,
+  selectConvertedWords,
+} from "./phoneSlice";
 import { fetchWords } from "./phoneAPI";
 
 export const Phone = () => {
   const phoneword = useAppSelector(selectPhoneword);
+  const convertedWords = useAppSelector(selectConvertedWords);
   const dispatch = useAppDispatch();
-  const [convertedWords, setConvertedWords] = useState("Phoneword Converter");
 
   const convertPhoneword = async (input: string) => {
     try {
       const res = await fetchWords(input);
-      if (res) setConvertedWords(res.data.join(" "));
+      if (res) dispatch(updateConvertedWords(res.data.join(" ")));
     } catch (err) {
       console.log({ err });
     }
@@ -49,7 +54,7 @@ export const Phone = () => {
           <button
             onClick={() => {
               dispatch(clearInput());
-              setConvertedWords("Phoneword Converter");
+              dispatch(updateConvertedWords("Phoneword Converter"));
             }}
           >
             Clear

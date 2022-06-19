@@ -1,24 +1,34 @@
-import phonewordReducer, {
-  PhonewordState,
+import phoneReducer, {
+  PhoneState,
   inputDigit,
   clearInput,
-} from "./phonewordSlice";
+  updateConvertedWords,
+} from "./phoneSlice";
 
 describe("phoneword reducer", () => {
-  const initialState: PhonewordState = {
-    value: "8354",
+  const initialState: PhoneState = {
+    phoneword: "8354",
+    convertedWords: "",
   };
   test("should handle initial state", () => {
-    expect(phonewordReducer(undefined, { type: "unknown" })).toEqual({
-      value: "",
+    expect(phoneReducer(undefined, { type: "unknown" })).toEqual({
+      phoneword: "",
+      convertedWords: "Phoneword Converter",
     });
   });
   test("should handle digit input", () => {
-    const actual = phonewordReducer(initialState, inputDigit("6"));
-    expect(actual.value).toEqual("83546");
+    const actual = phoneReducer(initialState, inputDigit("6"));
+    expect(actual.phoneword).toEqual("83546");
   });
   test("should handle clearing input", () => {
-    const actual = phonewordReducer(initialState, clearInput());
-    expect(actual.value).toEqual("");
+    const actual = phoneReducer(initialState, clearInput());
+    expect(actual.phoneword).toEqual("");
+  });
+  test("should handle updating convertedWords", () => {
+    const actual = phoneReducer(
+      initialState,
+      updateConvertedWords("lorem ipsum dolor sit amet")
+    );
+    expect(actual.convertedWords).toEqual("lorem ipsum dolor sit amet");
   });
 });

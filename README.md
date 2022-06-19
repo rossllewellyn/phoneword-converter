@@ -1,6 +1,6 @@
 ### Phoneword Converter
 
-A phoneword converter (number to word) with a Node Backend and React/Redux frontend, written in TypeScript.
+A phoneword converter (number to word) with a Node Backend and React/Redux Frontend, written in TypeScript.
 
 ## Pre-requisites
 

@@ -1,4 +1,4 @@
-### Phoneword Converter
+# Phoneword Converter
 
 A phoneword converter (number to word) with a Node Backend and React/Redux Frontend, written in TypeScript.
 

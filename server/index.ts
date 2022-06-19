@@ -1,5 +1,6 @@
 import { config } from "dotenv";
 import express, { Application, Request, Response } from "express";
+import cors from "cors";
 import converterRoute from "./routes/converter.route";
 
 config();
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3005;
 const app: Application = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/api", converterRoute);
 

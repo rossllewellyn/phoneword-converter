@@ -38,11 +38,11 @@ cd ../server
 npm run prod
 ```
 
-Run the client from phoneword-converter/client:
+(Open a new terminal &) Run the client from phoneword-converter/client:
 
 ```
-cd ../client
-npm run start
+cd client
+npm run prod
 ```
 
 Navigate to http://localhost:3000/ and convert some phonewords!
@@ -62,7 +62,7 @@ Run the development client:
 
 ```
 cd phoneword-converter/client
-npm run start
+npm run dev
 ```
 
 <a name="testing"></a>
@@ -80,5 +80,5 @@ Run client tests:
 
 ```
 cd phoneword-converter/client
-npm run start
+npm run test
 ```
